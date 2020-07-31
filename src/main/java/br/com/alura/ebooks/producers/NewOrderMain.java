@@ -15,22 +15,39 @@ public class NewOrderMain {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
         String uuid = UUID.randomUUID().toString();
-        ProducerRecord<String, String> record = new ProducerRecord<>("ebooks", uuid, "KSiA,WB,110.90");
+        String ebookOrder = "Test Driven Development, Astels, 150.90";
 
-        producer.send(record, (recordMetadata, exception) -> {
+        ProducerRecord<String, String> recordEbooks = new ProducerRecord<>("bookstore_ebooks", uuid, ebookOrder);
+
+        producer.send(recordEbooks, (recordMetadata, exception) -> {
             if (exception != null) {
                 exception.printStackTrace();
                 return;
             }
 
-            System.out.println(recordMetadata.partition() + "\n" +
+            System.out.println("Ebook is gonna be generated: " + "\n" +
+                    recordMetadata.partition() + "\n" +
                     recordMetadata.offset() + "\n" +
                     recordMetadata.topic() + "\n" +
                     Instant.ofEpochMilli(recordMetadata.timestamp()));
         }).get();
 
-//        Future<RecordMetadata> future = producer.send(record);
+//        Future<RecordMetadata> future = producer.send(recordEbooks);
 //        RecordMetadata recordMetadata = future.get();
+
+        String email = "Thanks for your order! You just bought: " + ebookOrder;
+        ProducerRecord<String, String> recordEmail = new ProducerRecord<>("bookstore_emails",email);
+        producer.send(recordEmail, (recordMetadata, exception) -> {
+            if (exception != null) {
+                exception.printStackTrace();
+                return;
+            }
+            System.out.println("Email is gonna be sent: " + "\n" +
+                    recordMetadata.partition() + "\n" +
+                    recordMetadata.offset() + "\n" +
+                    recordMetadata.topic() + "\n" +
+                    Instant.ofEpochMilli(recordMetadata.timestamp()));
+        }).get();
     }
 
     private static Properties properties() {

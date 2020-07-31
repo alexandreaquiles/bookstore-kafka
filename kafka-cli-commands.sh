@@ -23,3 +23,5 @@ bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --grou
 bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic ebooks --property "parse.key=true" --property "key.separator=;"
 
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic ebooks --partitions 2
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first-topic --partition 0 --offset 10

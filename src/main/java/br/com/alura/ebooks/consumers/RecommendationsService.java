@@ -16,7 +16,7 @@ public class RecommendationsService {
     public static void main(String[] args) {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties());
 
-        consumer.subscribe(Collections.singletonList("ebooks"));
+        consumer.subscribe(Collections.singletonList("bookstore_ebooks"));
 
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));//busy wait
@@ -37,8 +37,9 @@ public class RecommendationsService {
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "recommendations");
+        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "recommendations-ml");
         properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         return properties;
     }
+
 }
