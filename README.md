@@ -34,8 +34,8 @@ Confluent Kafka certifications: https://www.confluent.io/certification/
 Alternative CLI: https://github.com/edenhill/kafkacat
 
 GUIs:
-https://www.conduktor.io/ 
-https://www.kafkatool.com/
+- https://www.conduktor.io/ 
+- https://www.kafkatool.com/
 
 Kafka Clients: https://cwiki.apache.org/confluence/display/KAFKA/Clients#Clients-ClientLibrariesPreviouslySupported
 
@@ -44,6 +44,35 @@ Producer Configs: https://kafka.apache.org/documentation/#producerconfigs
 Consumer Configs: https://kafka.apache.org/documentation/#consumerconfigs
 
 Books on Kafka by Confluent: 
-https://www.confluent.io/resources/kafka-the-definitive-guide/ 
-https://www.confluent.io/designing-event-driven-systems/ 
-https://www.confluent.io/blog/kafka-streams-action/
+- https://www.confluent.io/resources/kafka-the-definitive-guide/ 
+- https://www.confluent.io/designing-event-driven-systems/ 
+- https://www.confluent.io/blog/kafka-streams-action/
+
+## Day 3
+
+Why is Kafka so fast? (via Kazuki): https://cloudnweb.dev/2019/05/heres-what-makes-apache-kafka-so-fast-kafka-series-part-3/
+
+Efficient Serilization formats:
+- https://avro.apache.org/
+- https://thrift.apache.org/
+- https://developers.google.com/protocol-buffers
+
+Confluent's Schema Registry: https://docs.confluent.io/current/schema-registry/index.html
+
+### Extra
+
+Learning Clojure:
+
+- https://github.com/functional-koans/clojure-koans
+- http://clojurescriptkoans.com/
+- https://exercism.io/tracks/clojure
+- https://clojurebridge.org/curriculum/#/
+- http://www.4clojure.com/problems
+
+Off-topic:
+
+- https://web.archive.org/web/20200717061428/https://noyaml.com/
+- https://ihateregex.io/
+- https://www.vavr.io/vavr-docs/
+
+
